@@ -1,0 +1,25 @@
+# Virtual Environment 
+venv/
+ENV/
+
+#Byte-compiled / optimised / DLL Files
+__pycache__/
+
+#Distribution/packaging
+dist/
+build/
+*.egg-info/
+
+#IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+#Logs and databases
+logs/
+*.logs
+*.sqlite3
+
+#Environment variables
+.env 
