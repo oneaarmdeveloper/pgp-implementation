@@ -120,7 +120,7 @@ Version: Custom PGP Implementation 1.0
                     base64_lines.append(line)
 
             base64_data = ''.join(base64_lines)
-            json_data = base64.b64decode(base64_data).decode()
+            json_data = base64.b64decode(base64_data).decode('utf-8')
 
             message_data = json.loads(json_data)
 
@@ -144,12 +144,12 @@ Version: Custom PGP Implementation 1.0
     @staticmethod
     def save_message_to_file(message, filename):
         """Save PGP message to file"""
-        with open(filename, 'w') as f:
+        with open(filename, 'w', encoding='utf-8') as f:
             f.write(message)
         print(f"Message saved to: {filename}")
 
     @staticmethod
     def load_message_from_file(filename):
         """Load a PGP message from file"""
-        with open(filename, 'r') as f:
+        with open(filename, 'r', encoding='utf-8') as f:
             return f.read()

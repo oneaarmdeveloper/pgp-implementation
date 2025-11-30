@@ -1,7 +1,7 @@
 import os
 import json
 from datetime import datetime
-from crypto_utils import CryptoUtils
+from .crypto_utils import CryptoUtils
 
 
 class KeyManager:
@@ -29,7 +29,7 @@ class KeyManager:
 
         # Serialize
         private_pem = CryptoUtils.serialize_private_key(private_key, password)
-        public_pem = CryptoUtils.serialize_public(public_key)
+        public_pem = CryptoUtils.serialize_public_key(public_key)  # ✅ Fixed method name
 
         private_path = os.path.join(self.keys_directory, f"{safe_id}_private.pem")
         public_path = os.path.join(self.keys_directory, f"{safe_id}_public.pem")
@@ -187,6 +187,5 @@ class KeyManager:
     @staticmethod
     def _make_safe_filename(user_id):
         """Convert user ID to a safe filename (no special chars)."""
-        safe = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_."
-
-        return "".join(c if c in safe else "_" for c in user_id)
+        safe_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_."
+        return "".join(c if c in safe_chars else "_" for c in user_id)

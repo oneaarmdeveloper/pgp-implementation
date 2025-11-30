@@ -1,7 +1,5 @@
 """
-cryptoutils.py
-
-Secure, corrected cryptographic utilities for hybrid (PGP-like) use:
+Cryptographic utilities for hybrid (PGP-like) use:
 - RSA keypair generation (2048 or 4096 bits recommended)
 - Serialize / load private/public keys (PEM, optional password)
 - AES-256 key generation
@@ -13,10 +11,6 @@ Secure, corrected cryptographic utilities for hybrid (PGP-like) use:
 - Hybrid helpers: encrypt (produce encrypted session key + ciphertext), decrypt
 - Base64 helpers for easy serialization/transmission
 """
-import sys
-print("PYTHON EXECUTABLE:", sys.executable)
-print("PYTHON PATH:", sys.path)
-
 
 import os
 import base64
@@ -336,4 +330,3 @@ if __name__ == "__main__":
     unp = CryptoUtils.pkcs7_unpad(padded, 16)
     assert unp == b"ABC"
     print("PKCS7 pad/unpad OK")
-
