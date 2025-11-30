@@ -22,5 +22,7 @@ logs/
 *.sqlite3
 
 #Environment variables
-.env keys/
+.env 
+
+#Keys
 keys/
